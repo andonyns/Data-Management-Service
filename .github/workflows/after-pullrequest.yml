@@ -11,6 +11,11 @@ on:
     types:
       - completed
 
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
 jobs:
   report-test-results:
     name: Report Test Results
