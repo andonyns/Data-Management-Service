@@ -16,20 +16,25 @@ jobs:
     name: Report Test Results
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@v4
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
       - name: Upload Unit Test Results
         uses: dorny/test-reporter@c9b3d0e2bd2a4e96aaf424dbaa31c46b42318226 #v1.6.0
         with:
-          artifact: unit-tests
+          # artifact: unit-tests
           name: Unit Test Results
-          path: "**/*.trx"
+          path: "unit-tests.trx"
           reporter: dotnet-trx
           fail-on-error: false
 
       - name: Upload E2E Test Results
         uses: dorny/test-reporter@c9b3d0e2bd2a4e96aaf424dbaa31c46b42318226 #v1.6.0
         with:
-          artifact: e2e-tests
+          # artifact: e2e-tests
           name: E2E Test Results
-          path: "**/*.trx"
+          path: "e2e-tests.trx"
           reporter: dotnet-trx
           fail-on-error: false
