@@ -83,6 +83,9 @@ jobs:
         if: success()
         run: ./build.ps1 UnitTest -Configuration Debug
 
+      - name: Files
+        run: ls -R
+
       - name: Upload Test Results
         uses: actions/upload-artifact@v4
         with:
