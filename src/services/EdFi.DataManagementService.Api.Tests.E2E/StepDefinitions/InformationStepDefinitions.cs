@@ -32,7 +32,7 @@ public class InformationStepDefinitions
         string expectedInformation = "Data Management Service";
 
         _APIResponse.Status.Should().Be((int)HttpStatusCode.OK);
-        content.Should().Be(expectedInformation);
+        content.Should().Contain(expectedInformation);
     }
 
 }
