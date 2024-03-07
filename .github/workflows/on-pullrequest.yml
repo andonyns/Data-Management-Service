@@ -133,6 +133,9 @@ jobs:
           path: "**/*.trx"
           retention-days: 5
 
+      - name: Files
+        run: ls -R
+
       - name: Publish Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
