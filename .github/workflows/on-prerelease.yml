@@ -41,13 +41,13 @@ jobs:
           Import-Module ./github-builder.psm1
           Get-VersionNumber
 
-      - name: Publish .NET Assemblies
-        run: |
-          $apiVersion = "${{ steps.versions.outputs.dms-semver }}"
+      # - name: Publish .NET Assemblies
+      #   run: |
+      #     $apiVersion = "${{ steps.versions.outputs.dms-semver }}"
 
-          ./build.ps1 -Command BuildAndPublish `
-              -Configuration Release `
-              -APIVersion $apiVersion
+      #     ./build.ps1 -Command BuildAndPublish `
+      #         -Configuration Release `
+      #         -APIVersion $apiVersion
 
       - name: Create NuGet Package
         run: |
