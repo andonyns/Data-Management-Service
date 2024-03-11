@@ -14,9 +14,9 @@ jobs:
     name: Create Tag
     runs-on: ubuntu-latest
     steps:
-      - name: Verify Input
-        run: |
-          [[ "$inputs.name" =~ ^v[0-9].[0-9].[0-9]$ ]] && echo "yes"
+      # - name: Verify Input
+      #   run: |
+      #     [[ "$inputs.name" =~ ^v[0-9].[0-9].[0-9]$ ]] && echo "yes"
 
       - name: Create tag
         uses: actions/github-script@v5
