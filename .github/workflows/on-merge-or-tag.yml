@@ -10,6 +10,11 @@ on:
       - main
     tags:
       - "v*.*.*"
+  workflow_run:
+    workflows:
+      - "Trigger release"
+    types:
+      - completed
 
 env:
   API_URL: https://api.github.com/repos/${{ github.repository }}
@@ -41,10 +46,10 @@ jobs:
       - name: Create Dms API Pre-Release
         run: |
           $version = "${{ steps.versions.outputs.dms-semver }}"
-          $tag = $version -replace "v","pre-"
+          # $tag = $version -replace "v","pre-"
 
           $body = @{
-            tag_name = "$tag"
+            tag_name = "$version"
             target_commitish = "main"
             name = $version
             body = ""

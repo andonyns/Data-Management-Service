@@ -17,6 +17,8 @@ function Get-VersionNumber {
 
     $version = $(&minver -t $prefix)
 
+    echo $version
+
     "dms-v=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
     "dms-semver=$($version -Replace $prefix)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 }
