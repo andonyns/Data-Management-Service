@@ -29,7 +29,7 @@ function Invoke-DotnetPack {
         $Version
     )
 
-    &dotnet pack -p:PackageVersion=$Version -o ./
+    &dotnet pack ./EdFi.DataManagementService.sln -p:PackageVersion=$Version -o ./
 }
 
 function Invoke-NuGetPush {
