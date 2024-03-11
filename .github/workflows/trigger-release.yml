@@ -1,0 +1,32 @@
+name: Trigger Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: string
+        description: Tag to create
+        default: "v0.0.0"
+
+
+jobs:
+  create-tag:
+    name: Create Tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify Input
+        run: |
+          [[ "$inputs.name" =~ ^v[0-9].[0-9].[0-9]$ ]] && echo "yes"
+
+      - name: Create tag
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/${{ inputs.name }}',
+              sha: context.sha
+            })
+
+
