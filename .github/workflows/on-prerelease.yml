@@ -85,6 +85,8 @@ jobs:
 
       - name: Generate Software Bill of Materials (SBOM)
         run: |
+          ls -R
+
           $packageName = "${{ env.PACKAGE_NAME }}"
           $version = "${{ needs.pack.outputs.dms-version }}"
 
