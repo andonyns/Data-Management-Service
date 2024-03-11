@@ -86,6 +86,8 @@ jobs:
           $packageName = "${{ env.PACKAGE_NAME }}"
           $version = "${{ needs.pack.outputs.dms-version }}"
 
+          (Resolve-Path ("./$($packageName).$($version).nupkg")).Path | Out-File -FilePath buildfilelist.txt
+
           dotnet tool install --global Microsoft.Sbom.DotNetTool
 
           sbom-tool generate `
