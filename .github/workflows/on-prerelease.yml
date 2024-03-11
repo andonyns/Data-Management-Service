@@ -120,7 +120,7 @@ jobs:
         uses: actions/upload-artifact@26f96dfa697d77e81fd5907df203aa23a56210a8 # v4.3.0
         with:
           name: ${{ env.PACKAGE_NAME }}-SBOM
-          path: ./manifest
+          path: ${{ env.MANIFEST_FILE }}
           if-no-files-found: error
           retention-days: 30
 
