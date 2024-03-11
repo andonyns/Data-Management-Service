@@ -29,6 +29,7 @@ jobs:
               ref: 'refs/tags/${{ inputs.name }}',
               sha: context.sha
             })
+          debug: true
 
       - name: Get result
         run: echo "${{steps.create-tag.outputs.result}}"
