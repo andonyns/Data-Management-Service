@@ -44,7 +44,7 @@ jobs:
         with:
           retries: 2
           script: |
-            github.rest.releases.post({
+            github.rest.repos.createRelease({
               owner: context.repo.owner,
               repo: context.repo.repo,
               tag_name: steps.versions.outputs.dms-server,
