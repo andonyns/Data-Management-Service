@@ -49,7 +49,7 @@ jobs:
               repo: context.repo.repo,
               tag_name: ${{ steps.versions.outputs.dms-server }},
               target_commitish: 'main',
-              name: ${{ steps.versions.outputs.dms-server }}
+              name: ${{ steps.versions.outputs.dms-server }},
               body: '',
               draft: false,
               perrelease: false,
