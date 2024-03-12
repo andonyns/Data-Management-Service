@@ -47,9 +47,9 @@ jobs:
             github.rest.repos.createRelease({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tag_name: '${{ steps.versions.outputs.dms-server }}',
+              tag_name: '${{ steps.versions.outputs.dms-semver }}',
               target_commitish: 'main',
-              name: '${{ steps.versions.outputs.dms-server }}',
+              name: '${{ steps.versions.outputs.dms-semver }}',
               body: '',
               draft: false,
               perrelease: false,
