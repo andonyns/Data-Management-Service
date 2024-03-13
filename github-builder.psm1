@@ -40,10 +40,11 @@ function Invoke-DotnetPack {
     )
 
     $nuSpecPath = "./EdFi.DataManagementService.Api.nuspec"
+    $copyrightYear = ${(Get-Date).year)}
 
     # NU5100 is the warning about DLLs outside of a "lib" folder. We're
     # deliberately using that pattern, therefore we bypass the warning.
-    &dotnet pack ./src/EdFi.DataManagementService.sln -p:PackageVersion=$Version -p:NuspecFile=$nuspecPath /p:NoWarn=NU5100 -o ./
+    &dotnet pack ./src/EdFi.DataManagementService.sln -p:NuspecFile=$nuspecPath -p:NuspecProperties="PackageVersion=$Version;Year=$copyrightYear" /p:NoWarn=NU5100 -o ./
 }
 
 <#
