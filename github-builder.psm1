@@ -39,7 +39,9 @@ function Invoke-DotnetPack {
         $Version
     )
 
-    &dotnet pack ./src/EdFi.DataManagementService.sln -p:PackageVersion=$Version -o ./
+    $nuSpecPath = "./src/services/EdFi.DataManagementService.Api/EdFi.DataManagementService.Api.nuspec"
+
+    &dotnet pack ./src/EdFi.DataManagementService.sln -p:PackageVersion=$Version -p:NuspecFile=$nuspecPath -o ./
 }
 
 <#
